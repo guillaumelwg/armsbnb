@@ -10,6 +10,4 @@ class User < ApplicationRecord
   has_many :weapons
   has_many :bookings
   has_many :reviews, through: :bookings
-
 end
-
