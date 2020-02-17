@@ -6,9 +6,3 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :email, format: { with: /\A.*@.*\.com\z/ }
 end
-
-# paul = User.new
-# paul.username = "polo"
-# paul.email = "paul@gmail.com"
-# paul.password ="password"
-
