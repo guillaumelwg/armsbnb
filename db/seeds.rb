@@ -16,10 +16,10 @@ User.destroy_all
 
 puts "Seeding database"
 puts "Creating users ..."
-olivier = User.create!({username: "Olivier", email: "g.olivier.projet@gmail.com", password:'cjkdsbchdsb'})
-paul = User.create!({username: "Paul", email: "couzinet.paul@gmail.com", password:'hdczj1432'})
-tom = User.create!({username: "Tom", email: "tom@gmail.com", password:'kjshdczvbh12'})
-guillaume = User.create!({username: "Guillaume", email: "guillaumeprotard@gmail.com", password:'kjehfzc87341'})
+olivier = User.create!({email: "g.olivier.projet@gmail.com", password:'cjkdsbchdsb'})
+paul = User.create!({email: "couzinet.paul@gmail.com", password:'hdczj1432'})
+tom = User.create!({email: "tom@gmail.com", password:'kjshdczvbh12'})
+guillaume = User.create!({email: "guillaumeprotard@gmail.com", password:'kjehfzc87341'})
 puts "Created 4 users"
 puts "------------------------------------------------------"
 
@@ -66,6 +66,7 @@ puts "Creating 10 bookings"
   booking = Booking.new
   booking.user = users.sample
   booking.weapon = weapons.sample
+  booking.bookingdate = Time.now
   booking.save!
 end
 puts "Created bookings"
@@ -83,3 +84,5 @@ booking_ids = (Booking.first.id..Booking.last.id).to_a
 end
 puts "Created reviews"
 puts "------------------------------------------------------"
+
+
