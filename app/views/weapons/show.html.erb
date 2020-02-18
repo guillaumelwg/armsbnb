@@ -23,7 +23,9 @@
 
 
 <%= link_to 'Back to weapons', weapons_path %>
-<%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>
-  Delete
+<% if policy(@weapon).destroy? %>
+  <%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>
+    Delete
+  <% end %>
 <% end %>
 <%= link_to 'Edit', edit_weapon_path(@weapon) %>

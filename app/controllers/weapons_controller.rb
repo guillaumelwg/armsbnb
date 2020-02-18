@@ -1,10 +1,14 @@
 class WeaponsController < ApplicationController
+
+
   def index
-    @weapons = Weapon.all
+    @weapons = policy_scope(Weapon)
+    authorize @weapons
   end
 
   def show
     @weapon = Weapon.find(params[:id])
+    authorize @weapon
     @booking = Booking.new
 
   end
@@ -35,6 +39,7 @@ class WeaponsController < ApplicationController
 
   def destroy
    @weapon = Weapon.find(params[:id])
+   authorize @weapon
    @weapon.destroy
    redirect_to weapons_path
   end
