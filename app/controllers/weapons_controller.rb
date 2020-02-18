@@ -5,6 +5,8 @@ class WeaponsController < ApplicationController
 
   def show
     @weapon = Weapon.find(params[:id])
+    @booking = Booking.new
+
   end
 
   def new

@@ -3,6 +3,17 @@
 <p><%= @weapon.price %></p>
 <p><%= @weapon.localisation %></p>
 
+<%= simple_form_for [@weapon, @booking] do |f| %>
+    <%= f.input :bookingdate %>
+    <%= f.submit "Réservez cette arme" %>
+<% end %>
+
+
+<%#= simple_form_for(@weapon) do |f| %>
+    <%#= f.input :date %>
+<%# end %>
+
+
 <%= link_to 'Back to weapons', weapons_path %>
 <%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>
   Delete
