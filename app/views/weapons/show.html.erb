@@ -4,6 +4,12 @@
 <p><%= @weapon.localisation %></p>
 <%= cl_image_tag @weapon.photo.key, height: 300, width: 400, crop: :fill %>
 
+<% @weapon.bookings.each do |booking|%>
+    <% booking.reviews.each do |review| %>
+    <%= review.content %>
+    <% end %>
+  <% end %>
+
 
 <%= simple_form_for [@weapon, @booking] do |f| %>
     <%= f.input :bookingdate %>
