@@ -1,3 +1,13 @@
-<p><%= @bookings.each do |booking| %></p>
-<%= booking.bookingdate %>
+<% @bookings.each do |booking| %>
+  <p><%= booking.weapon.name %></p>
+  <p>Weapon ID: <%= booking.weapon.id %></p>
+  <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 400, crop: :fill %>
+  <p>Booking date: <%= booking.bookingdate %></p>
+  <% booking.reviews.each do |review|%>
+    <p>Review: <%= review.content %></p>
+  <% end %>
+  <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+  </br>
+  </br>
+  </br>
 <% end %>
