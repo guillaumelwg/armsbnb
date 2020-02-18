@@ -1,0 +1,9 @@
+<h1>Add a weapon</h1>
+<%= simple_form_for(@weapon) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.input :localisation %>
+  <%= f.submit 'Add my weapon' %>
+<% end %>
+
