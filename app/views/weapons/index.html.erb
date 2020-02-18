@@ -1,0 +1,7 @@
+<h1>Weapons</h1>
+<% @weapons.each do |weapon| %>
+  <%= link_to weapon.name, weapon_path(weapon) %>
+<% end %>
+
+<%= link_to 'Add a weapon', new_weapon_path  %>
+
