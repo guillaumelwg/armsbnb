@@ -1,0 +1,11 @@
+<h1><%= @booking.bookingdate %></h1>
+<p><%= @booking.weapon.category %></p>
+<p><%= @booking.weapon.price %></p>
+<p><%= @booking.weapon.localisation %></p>
+
+ <%= link_to 'Back to weapon', weapon_path(@weapon) %>
+<%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>
+  Delete
+<% end %>
+<%= link_to 'Edit', edit_booking_path(@booking) %>
+
