@@ -2,6 +2,8 @@
 <p><%= @weapon.category %></p>
 <p><%= @weapon.price %></p>
 <p><%= @weapon.localisation %></p>
+<%= cl_image_tag @weapon.photo.key, height: 300, width: 400, crop: :fill %>
+
 
 <%= link_to 'Back to weapons', weapons_path %>
 <%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>

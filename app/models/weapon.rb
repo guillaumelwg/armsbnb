@@ -3,4 +3,6 @@ class Weapon < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   validates :price, :name, :category, :localisation, presence: true
+
+  has_one_attached :photo
 end
