@@ -1,13 +1,28 @@
+<h1 class="title"> Weapons booked in the old past</h1>
 <% @bookings.each do |booking| %>
+<br>
+<br>
+<br>
+ <div class="card-category-booking d-flex justify-content-between" >
+  <br>
+  <br>
+  <br>
+  <li>
   <p><%= booking.weapon.name %></p>
-  <p>Weapon ID: <%= booking.weapon.id %></p>
-  <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 400, crop: :fill %>
-  <p>Booking date: <%= booking.bookingdate %></p>
+  <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y - %I:%M%p") %></p>
+      <p><%= booking.weapon.category%></p>
+            <p><%= booking.weapon.price%> €</p>
+  </li>
+      <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 550, crop: :fill %>
+    </div>
+<div>
   <% booking.reviews.each do |review|%>
-    <p>Review: <%= review.content %></p>
   <% end %>
+  <br>
+  <br>
+  <div class= "review offset-5" >
   <%= link_to 'Leave a review', new_booking_review_path(booking) %>
-  </br>
-  </br>
-  </br>
+  </div>
+
+  </div>
 <% end %>
