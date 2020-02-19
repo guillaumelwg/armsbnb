@@ -1,31 +1,36 @@
-<h1><%= @weapon.name %></h1>
-<p><%= @weapon.category %></p>
-<p><%= @weapon.price %></p>
-<p><%= @weapon.localisation %></p>
-<%= cl_image_tag @weapon.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container">
+  <div class="flexbox ">
+    <div class="weapon-intro-review">
+      <div class="weapon-card my-4 p-4">
+      <%= cl_image_tag @weapon.photo.key, height: 400, width: 400, crop: :fill %>
+        <div class="weapon-infos-card">
+          <h3><%= @weapon.name %></h3>
+          <p>Category: <%= @weapon.category %></p>
+          <p><%= @weapon.price %> € / day</p>
+          <p><%= @weapon.localisation %></p>
+        </div>
+      </div>
+      <div class="weapon-card my-4 p-4">
+        <h5>Reviews</h5>
+        <% @weapon.bookings.each do |booking|%>
+            <% booking.reviews.each do |review| %>
+            <p><strong><%= review.booking.user.email %></strong></p>
+            <p><%= review.rating %> / 5 - "<%= review.content %>"</p>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
 
-
-<% @weapon.bookings.each do |booking|%>
-    <% booking.reviews.each do |review| %>
-    <%= review.content %>
-    <% end %>
+    <div class="weapon-card my-4 p-4 form-booking-card">
+      <%= simple_form_for [@weapon, @booking] do |f| %>
+          <%= f.input :bookingdate %>
+          <%= f.submit "Réservez cette arme", class: "btn btn-primary rounded"%>
+      <% end %>
+    </div>
+   
+  <%= link_to 'Back to weapons', weapons_path, class: "btn btn-secondary rounded" %>
+  <%= link_to weapon_path(@weapon), method: :delete, class: "btn btn-danger rounded", data: { confirm: "Are you sure?" } do %>
+    Delete
   <% end %>
-
-
-<%= simple_form_for [@weapon, @booking] do |f| %>
-    <%= f.input :bookingdate %>
-    <%= f.submit "Réservez cette arme" %>
-<% end %>
-
-
-
-<%#= simple_form_for(@weapon) do |f| %>
-    <%#= f.input :date %>
-<%# end %>
-
-
-<%= link_to 'Back to weapons', weapons_path %>
-<%= link_to weapon_path(@weapon), method: :delete, data: { confirm: "Are you sure?" } do %>
-  Delete
-<% end %>
-<%= link_to 'Edit', edit_weapon_path(@weapon) %>
+  <%= link_to 'Edit', edit_weapon_path(@weapon), class: "btn btn-warning rounded"%>
+</div>
