@@ -1,5 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "sign_up";
+
  .title {
   text-align: center;
  }
@@ -107,4 +109,5 @@ p{
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
 
