@@ -1,8 +1,7 @@
 class WeaponsController < ApplicationController
   def index
     @weapons = Weapon.all
-    @weapons = Weapon.geocoded # returns flats with coordinates
-     @weapons = Weapon.geocoded
+    @weapons = Weapon.geocoded
 
     @markers = @weapons.map do |weapon|
       {
