@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   # resources :weapons
 
   resources :weapons do
-    resources :bookings, only: [:create, :new, :index]
+    resources :bookings, only: [ :create ]
   end
 
-  resources :bookings, only: [:show, :update, :edit, :destroy ] do
+  resources :bookings, only: [ :index, :show, :update, :edit, :destroy ] do
     resources :reviews, only: [ :new, :create ]
   end
 end

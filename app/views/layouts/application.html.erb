@@ -13,12 +13,13 @@
     <%= render 'shared/navbar' %>
     <div class="container">
       <%= yield %>
-    </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= render 'shared/flashes' %>
     <%= javascript_pack_tag 'application' %>
+    <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_weapon
+  before_action :set_weapon, only: [:create]
 
   def index
     @bookings = Booking.where(user_id: current_user)
@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.weapon = @weapon
     @booking.user = current_user
     if @booking.save
-      redirect_to weapon_bookings_path(@weapon)
+      redirect_to bookings_path
     else
      render :index
     end
