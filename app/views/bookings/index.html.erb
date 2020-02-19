@@ -9,7 +9,7 @@
   <br>
   <li>
   <p><%= booking.weapon.name %></p>
-  <p>Booking date: <%= booking.bookingdate %></p>
+  <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y - %I:%M%p") %></p>
       <p><%= booking.weapon.category%></p>
             <p><%= booking.weapon.price%> €</p>
   </li>
@@ -17,7 +17,6 @@
     </div>
 <div>
   <% booking.reviews.each do |review|%>
-    <p>Review: <%= review.content %></p>
   <% end %>
   <br>
   <br>
