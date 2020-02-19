@@ -8,6 +8,10 @@
   <%#= cl_image_tag weapon.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 </div>
-
+<div id="map"
+     style="width: 100%;
+     height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <%= link_to 'Add a weapon', new_weapon_path  %>
 

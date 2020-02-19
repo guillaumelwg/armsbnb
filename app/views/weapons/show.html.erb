@@ -27,17 +27,7 @@
           <%= f.submit "Réservez cette arme", class: "btn btn-primary rounded"%>
       <% end %>
     </div>
-
-  </div>
-
-
-
-
-  <%#= simple_form_for(@weapon) do |f| %>
-      <%#= f.input :date %>
-  <%# end %>
-
-
+   
   <%= link_to 'Back to weapons', weapons_path, class: "btn btn-secondary rounded" %>
   <%= link_to weapon_path(@weapon), method: :delete, class: "btn btn-danger rounded", data: { confirm: "Are you sure?" } do %>
     Delete
