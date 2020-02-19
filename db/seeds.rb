@@ -63,13 +63,13 @@ slingshot.user = paul
 slingshot.save!
 
 file = URI.open('https://res.cloudinary.com/dqyyujlp1/image/upload/v1582031965/tomato_ol8v9r.jpg')
-tomatoe = Weapon.new({name: "Tomatoe", price: 2, category: "Food", localisation: "10 rue des martyrs 75009 Paris"})
+tomatoe = Weapon.new({name: "Tomatoe", price: 2, category: "Food", localisation: "80 bd des Batignolles 75017 Paris"})
 tomatoe.photo.attach(io: file, filename: '#{tomatoe.name}.jpg', content_type: 'image/jpg')
 tomatoe.user = guillaume
 tomatoe.save!
 
 file = URI.open('https://res.cloudinary.com/dqyyujlp1/image/upload/v1582031964/water_pistol_qd7tgm.jpg')
-water_pistol = Weapon.new({name: "Water pistol", price: 10, category: "Kids", localisation: "10 rue des martyrs 75009 Paris"})
+water_pistol = Weapon.new({name: "Water pistol", price: 10, category: "Kids", localisation: "80 bd des Batignolles 75017 Paris"})
 water_pistol.photo.attach(io: file, filename: '#{water_pistol.name}.jpg', content_type: 'image/jpg')
 water_pistol.user = guillaume
 water_pistol.save!
