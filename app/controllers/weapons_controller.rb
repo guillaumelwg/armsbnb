@@ -12,7 +12,6 @@ class WeaponsController < ApplicationController
         }
       end
     else
-      # @weapons = Weapon.all
       @weapons = policy_scope(Weapon)
       @weapons = Weapon.geocoded
 
