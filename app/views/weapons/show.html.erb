@@ -36,7 +36,11 @@
 
     <div class="weapon-card my-4 p-4 form-booking-card">
       <%= simple_form_for [@weapon, @booking] do |f| %>
-          <%= f.input :bookingdate %>
+          <%= f.hidden_field :weapon_id %>
+          <input type="text" class="flatpickr" name="start_date">
+          <input type="text" class="flatpickr" name="end_date">
+          <%#= f.input_field :start_date, input_html: { class: 'flatpickr' } %>
+          <%#= f.input_field :end_date, input_html: { class: 'flatpickr' } %>
           <%= f.submit "Réservez cette arme", class: "btn btn-primary rounded"%>
       <% end %>
     </div>
@@ -52,3 +56,5 @@
 <%# end %>
 
 </div>
+
+

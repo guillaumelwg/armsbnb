@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
     @booking.weapon = @weapon
     authorize @weapon
     @booking.user = current_user
+    @booking.start_date = params[:start_date].to_date
+    @booking.end_date = params[:end_date].to_date
     if @booking.save
       redirect_to bookings_path
     else
@@ -43,7 +45,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:bookingdate)
+    params.require(:booking).permit(:start_date, :end_date, :weapon_id)
   end
 
   def set_weapon
