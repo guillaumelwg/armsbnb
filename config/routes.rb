@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   # get 'weapons/update'
   # get 'weapons/destroy'
   devise_for :users
-  root to: 'weapons#index'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # resources :weapons
 
-  resources :weapons do
+  resources :weapons, only: [ :index, :new ] do
     resources :bookings, only: [ :create ]
   end
 
