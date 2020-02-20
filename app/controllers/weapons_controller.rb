@@ -1,9 +1,7 @@
 class WeaponsController < ApplicationController
-
-
   def index
     @weapons = policy_scope(Weapon)
-    authorize @weapons
+    # authorize @weapons
     # @weapons = Weapon.all
     @weapons = Weapon.geocoded
     @markers = @weapons.map do |weapon|
@@ -19,15 +17,16 @@ class WeaponsController < ApplicationController
     @weapon = Weapon.find(params[:id])
     authorize @weapon
     @booking = Booking.new
-
   end
 
   def new
     @weapon = Weapon.new
+    authorize @weapon
   end
 
   def create
     @weapon = Weapon.new(weapon_params)
+    authorize @weapon
     @weapon.user = current_user
     if @weapon.save
       redirect_to weapon_path(@weapon)
@@ -38,10 +37,12 @@ class WeaponsController < ApplicationController
 
   def edit
     @weapon = Weapon.find(params[:id])
+    authorize @weapon
   end
 
   def update
     @weapon = Weapon.find(params[:id])
+    authorize @weapon
     @weapon.update(weapon_params)
     redirect_to weapon_path(@weapon)
   end
