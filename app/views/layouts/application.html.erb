@@ -11,19 +11,23 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
   </head>
   <body>
-    <div class="background">
-      <%= render 'shared/navbar' %>
-      <div class="container-perso">
+    <%= render 'shared/navbar' %>
+    <% if params[:action] == "home" %>
         <div class="content-wrapper">
           <%= yield %>
         </div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <%= render 'shared/flashes' %>
-        <%= javascript_pack_tag 'application' %>
+    <% else %>
+      <div class="container">
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
       </div>
-      <%= render 'shared/footer' %>
-    </div>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= render 'shared/flashes' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

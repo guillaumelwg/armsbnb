@@ -1,5 +1,68 @@
-<h1>The right Arm at the right Moment, wherever you are!</h1>
-    <p>Anyone can become a good Killer</p>
-    <a class="btn btn-flat" href="">Create my account</a>
+<div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'background_arms.jpg' %>);">
+  <h1>The right Arm at the right Moment, wherever you are!</h1>
+  <p>Anyone can become a good Killer</p>
+  <div class="form-banner">
+    <div class="form-query">
+      <%= form_tag weapons_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a weapon"
+      %>
+    </div>
+    <div class="form-submit">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="bloc-vp">
+    <h2>Become the Evil King</h2>
+    <div class="bloc-vp-cards justify-content-around">
+      <div class="card">
+        <p><i class="fas fa-book-dead" style="font-size: 80px;"></i></p>
+        <h3 style="color: white;">A huge choice</h3>
+        <p>More than 10 000 different kind of Weapons</p>
+      </div>
+
+      <div class="card">
+        <p><i class="fas fa-running" style="font-size: 80px;"></i></p>
+        <h3 style="color: white;">Book a Weapon very quickly</h3>
+        <p>1min to find and book the weapon of your dreams</p>
+      </div>
+    </div>
+    <div>
+      <%= link_to "Create my account", new_user_registration_path, class: "btn btn-flat" %>
+    </div>
+  </div>
 </div>
 
+<!--
+<div class="bloc-top">
+  <h2>3 most incredibles Weapons of the day</h2>
+  <div class="top-3">
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ -->

@@ -1,14 +1,19 @@
 .btn-flat {
-  color: white;
+  color: #2A2A2A;
   padding: 8px 24px;
   border-radius: 30px;
   border: 5px solid #fd0054;
   transition: background 0.1s ease;
   font-family: 'Luckiest Guy', cursive;
+  margin: 45px;
 }
 
 .btn-flat:hover {
   background-color: #fd0054;
   border: 5px solid #fd0054;
-  color: white;
+}
+
+.btn-primary {
+  background-color: #fd0054;
+  border-color: #fd0054;
 }
