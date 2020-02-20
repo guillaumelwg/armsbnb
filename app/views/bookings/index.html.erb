@@ -13,7 +13,11 @@
       <p><%= booking.weapon.category%></p>
             <p><%= booking.weapon.price%> €</p>
   </li>
-      <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 550, crop: :fill %>
+  <%  if booking.weapon.photo.present?  %>
+          <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 550, crop: :fill %>
+        <% else %>
+          <%= image_tag("image-not-found.jpg", height: 300, width: 550, crop: :fill) %>
+        <% end  %>
     </div>
 <div>
   <% booking.reviews.each do |review|%>

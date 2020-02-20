@@ -11,8 +11,15 @@
     <% @weapons.each do |weapon| %>
     <div class="card-content w-100 m-2 rounded shadow">
       <%= link_to weapon_path(weapon) do  %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-      </div>
+
+       <% if weapon.photo.present?  %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path weapon.photo.key %>)">
+         </div>
+       <% else %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/image-not-found.jpg')">
+         </div>
+       <% end  %>
+
       <div class="card-info">
         <div class="card-title mb-0 mt-2">
           <%= link_to weapon.name.upcase, weapon_path(weapon) %>
