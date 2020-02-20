@@ -2,16 +2,20 @@ class BookingsController < ApplicationController
   before_action :set_weapon, only: [:create]
 
   def index
+    @bookings = policy_scope(Booking)
     @bookings = Booking.where(user_id: current_user)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.weapon = @weapon
+    authorize @weapon
     @booking.user = current_user
     @booking.start_date = params[:start_date].to_date
     @booking.end_date = params[:end_date].to_date
