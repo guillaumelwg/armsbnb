@@ -1,14 +1,28 @@
 <div class="container-index pl-4 pr-4">
-    <div class="text-prez m-3">
+  <div class="d-flex w-100 justify-content-between" style="border-bottom: 1px solid #AAAAAA">
+    <div class="text-prez w-100 m-3">
       <h1 class="p-0">Find your weapon</h1>
       <p style="text-align: left;">With <em>Bim Bam Boum</em>, find the weapon of your dream.</p>
     </div>
-    <div class="accroche ml-3 mt-4" style="border-bottom: 1px solid #AAAAAA">
-      <h5>Find your happiness in our <%= Weapon.count %> products</h3>
+    <div class="d-flex align-items-center text-align-center">
+      <%= form_tag weapons_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "search",
+          class: "form-control",
+          style: "width: 300px",
+          placeholder: "Find a weapon"
+        %>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+      <% end %>
     </div>
+  </div>
+
     <br>
-    <div class="global d-flex justify-content-evenly m-auto">
-      <div class="cards w-100 mr-5">
+    <div class="d-flex justify-content-evenly m-auto">
+      <div class="cards h-100 w-100 mr-5">
         <% @weapons.each do |weapon| %>
         <div class="card-content w-100 m-2 rounded shadow">
       <%= link_to weapon_path(weapon) do  %>
@@ -20,19 +34,21 @@
          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/image-not-found.jpg')">
          </div>
        <% end  %>
-          <div class="card-info p-1">
-            <div class="card-title mb-0 mt-2">
-              <%= link_to weapon.name.upcase, weapon_path(weapon) %>
+          <div class="card-info p-1 d-flex">
+            <div class="position-relative">
+              <div class="card-title mb-2 mt-2">
+                <%= link_to weapon.name.upcase, weapon_path(weapon) %>
+              </div>
+              <div class="card-cat mb-4">
+                Category : <%= weapon.category %>
+              </div>
             </div>
-            <div class="card-cat mb-3">
-              Category : <%= weapon.category %>
-            </div>
-            <div class="card-price">
-              <%= weapon.price %><i class="fas fa-euro-sign ml-1"></i>
+            <div class="card-price position-absolute">
+              <p><%= weapon.price %><i class="fas fa-euro-sign ml-1"></i></p>
+              <p>/ day</p>
             </div>
             <% end %>
           </div>
-
         </div>
         <% end %>
       </div>

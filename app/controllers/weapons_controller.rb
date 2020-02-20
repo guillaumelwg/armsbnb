@@ -1,15 +1,28 @@
 class WeaponsController < ApplicationController
   def index
-    @weapons = policy_scope(Weapon)
-    # authorize @weapons
-    # @weapons = Weapon.all
-    @weapons = Weapon.geocoded
-    @markers = @weapons.map do |weapon|
-      {
-        lat: weapon.latitude,
-        lng: weapon.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { weapon: weapon })
-      }
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @weapons = Weapon.where(sql_query, query: "%#{params[:query]}%")
+
+      @markers = @weapons.map do |weapon|
+        {
+          lat: weapon.latitude,
+          lng: weapon.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { weapon: weapon })
+        }
+      end
+    else
+      # @weapons = Weapon.all
+      @weapons = policy_scope(Weapon)
+      @weapons = Weapon.geocoded
+
+      @markers = @weapons.map do |weapon|
+        {
+          lat: weapon.latitude,
+          lng: weapon.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { weapon: weapon })
+        }
+      end
     end
   end
 
