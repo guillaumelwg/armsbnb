@@ -3,6 +3,8 @@
   border-bottom: 0.5px solid #fd0054;
   margin-bottom: 20px;
   background-color: #2A2A2A;
+  position: sticky;
+  top: 0;
 }
 
 .fas {
@@ -13,6 +15,9 @@
   color: white !important;
 }
 
+.nav-link:hover {
+  color: #fd0054 !important;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -28,4 +33,9 @@
 
 .navbar-lewagon .navbar-brand img {
     width: 191px;
+}
+
+.navbar-lewagon .navbar-brand:hover img {
+  width: 200px;
+  transition: 0.1s;
 }
