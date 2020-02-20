@@ -2,6 +2,7 @@
   "name": "armsbnb",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -10,6 +11,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.7.0",
+    "places.js": "^1.18.1",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
     "stimulus-flatpickr": "^1.2.1",
