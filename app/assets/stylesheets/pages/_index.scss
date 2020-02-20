@@ -13,12 +13,16 @@
 
  }
 
+ strong {
+  text-align:left;
+ }
+
  h1 {
   padding: 15px;
  }
 
 p{
-  text-align: center;
+  text-align: left;
 }
 
 .card-category-booking {
@@ -43,6 +47,9 @@ p{
     }
   }
 }
+.container-index {
+  margin: 0px !important;
+  }
 
 .review {
   color: black;
@@ -52,7 +59,7 @@ p{
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  text-align: center;
+  text-align: left;
   width: 150px;
   background-position: center;
   text-decoration: none;
@@ -71,8 +78,14 @@ p{
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+}
+
+.flatpickr {
+margin: 20px;
+display: flex;
+justify-content: center;
 }
 
 // Smallest device
@@ -99,14 +112,14 @@ p{
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

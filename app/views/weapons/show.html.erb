@@ -16,10 +16,12 @@
       </div>
       <div>
         <%= link_to 'Back to weapons', weapons_path, class: "btn btn-secondary rounded" %>
-        <%= link_to weapon_path(@weapon), method: :delete, class: "btn btn-danger rounded", data: { confirm: "Are you sure?" } do %>
-          Delete
+        <% if current_user == @weapon.user  || current_user.admin? %>
+          <%= link_to weapon_path(@weapon), method: :delete, class: "btn btn-danger rounded", data: { confirm: "Are you sure?" } do %>
+            Delete
+          <% end %>
+          <%= link_to 'Edit', edit_weapon_path(@weapon), class: "btn btn-warning rounded"%>
         <% end %>
-        <%= link_to 'Edit', edit_weapon_path(@weapon), class: "btn btn-warning rounded"%>
       </div>
       <div class="weapon-card my-4 p-4">
         <h5>Reviews</h5>
@@ -34,9 +36,25 @@
 
     <div class="weapon-card my-4 p-4 form-booking-card">
       <%= simple_form_for [@weapon, @booking] do |f| %>
-          <%= f.input :bookingdate %>
+          <%= f.hidden_field :weapon_id %>
+          <input type="text" class="flatpickr" name="start_date">
+          <input type="text" class="flatpickr" name="end_date">
+          <%#= f.input_field :start_date, input_html: { class: 'flatpickr' } %>
+          <%#= f.input_field :end_date, input_html: { class: 'flatpickr' } %>
           <%= f.submit "Réservez cette arme", class: "btn btn-primary rounded"%>
       <% end %>
     </div>
 
+<%#= simple_form_for [@weapon, @booking] do |f| %>
+    <%#= f.input :bookingdate %>
+    <%#= f.submit "Réservez cette arme" %>
+<%# end %>
+
+
+<%#= simple_form_for(@weapon) do |f| %>
+    <%#= f.input :date %>
+<%# end %>
+
 </div>
+
+

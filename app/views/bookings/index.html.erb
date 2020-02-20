@@ -9,7 +9,9 @@
   <br>
   <li>
   <p><%= booking.weapon.name %></p>
-  <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y - %I:%M%p") %></p>
+  <p>Booking Start: <%= booking.start_date.strftime("%m/%d/%Y - %I:%M%p") %></p>
+    <p>Booking End: <%= booking.end_date.strftime("%m/%d/%Y - %I:%M%p") %></p>
+
       <p><%= booking.weapon.category%></p>
             <p><%= booking.weapon.price%> €</p>
   </li>
@@ -19,14 +21,17 @@
           <%= image_tag("image-not-found.jpg", height: 300, width: 550, crop: :fill) %>
         <% end  %>
     </div>
+    <br>
+    <% if booking.reviews.count < 1 %>
+      <div class= "review offset-5" >
+        <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+      </div>
+    <% end %>
 <div>
   <% booking.reviews.each do |review|%>
   <% end %>
   <br>
   <br>
-  <div class= "review offset-5" >
-  <%= link_to 'Leave a review', new_booking_review_path(booking) %>
   </div>
 
-  </div>
 <% end %>
