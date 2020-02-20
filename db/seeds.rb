@@ -17,10 +17,10 @@ User.destroy_all
 
 puts "Seeding database"
 puts "Creating users ..."
-olivier = User.create!({email: "g.olivier.projet@gmail.com", password:'cjkdsbchdsb'})
-paul = User.create!({email: "couzinet.paul@gmail.com", password:'hdczj1432'})
-tom = User.create!({email: "tom@gmail.com", password:'kjshdczvbh12'})
-guillaume = User.create!({email: "guillaumeprotard@gmail.com", password:'kjehfzc87341'})
+olivier = User.create!({email: "g.olivier.projet@gmail.com", password:'123456'})
+paul = User.create!({email: "couzinet.paul@gmail.com", password:'123456', admin: true})
+tom = User.create!({email: "tom@gmail.com", password:'123456'})
+guillaume = User.create!({email: "guillaumeprotard@gmail.com", password:'123456', admin: true})
 puts "Created 4 users"
 puts "------------------------------------------------------"
 
