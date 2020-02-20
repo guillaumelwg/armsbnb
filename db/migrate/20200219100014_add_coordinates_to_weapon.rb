@@ -4,3 +4,4 @@ class AddCoordinatesToWeapon < ActiveRecord::Migration[6.0]
     add_column :weapons, :longitude, :float
   end
 end
+

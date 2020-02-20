@@ -17,6 +17,8 @@ gem 'webpacker'
 gem 'devise'
 gem 'faker'
 gem 'geocoder'
+gem "simple_calendar", "~> 2.0"
+
 
 
 gem 'dotenv-rails', groups: [:development, :test]
