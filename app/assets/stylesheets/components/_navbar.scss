@@ -1,16 +1,22 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
-  border-bottom: 0.5px solid #FF5A5F;
-  margin-bottom: 20px;
+  border-bottom: 0.5px solid #fd0054;
+  background-color: rgba(42, 42, 42, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 4;
 }
 
 .fas {
-  color: #FF5A5F;
+  color: #fd0054;
 }
 
 .nav-link {
-  color: #FF5A5F;
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: #fd0054 !important;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,4 +25,17 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-brand {
+  width: 60px;
+}
+
+.navbar-lewagon .navbar-brand img {
+    width: 191px;
+}
+
+.navbar-lewagon .navbar-brand:hover img {
+  width: 200px;
+  transition: 0.1s;
 }
