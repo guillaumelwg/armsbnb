@@ -7,9 +7,12 @@ import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
 import flatpickr from "flatpickr";
+// import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 document.addEventListener('turbolinks:load', () => {
+
   flatpickr(".flatpickr", {});
-  initMapbox();
+  if (document.querySelector("#map")) initMapbox();
+
 })
 
