@@ -19,14 +19,16 @@
           <%= image_tag("image-not-found.jpg", height: 300, width: 550, crop: :fill) %>
         <% end  %>
     </div>
+    <br>
+    <% if booking.reviews.count < 1 %>
+      <div class= "review offset-5" >
+        <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+      </div>
+    <% end %>
 <div>
   <% booking.reviews.each do |review|%>
   <% end %>
   <br>
   <br>
-  <div class= "review offset-5" >
-  <%= link_to 'Leave a review', new_booking_review_path(booking) %>
-  </div>
-
   </div>
 <% end %>
