@@ -4,6 +4,15 @@ class WeaponsController < ApplicationController
   def index
     @weapons = policy_scope(Weapon)
     authorize @weapons
+    # @weapons = Weapon.all
+    @weapons = Weapon.geocoded
+    @markers = @weapons.map do |weapon|
+      {
+        lat: weapon.latitude,
+        lng: weapon.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { weapon: weapon })
+      }
+    end
   end
 
   def show
