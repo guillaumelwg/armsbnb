@@ -1,37 +1,40 @@
-<div class="text-prez m-3">
-  <h1>Find your weapon</h1>
-  <p style="text-align: left;">With <em>Bim Bam Boum</em>, find the weapon of your dream.</p>
-</div>
-<div class="accroche ml-3 mt-4" style="border-bottom: 1px solid #AAAAAA">
-  <h5>Find your happiness in our <%= Weapon.count %> products</h3>
-</div>
-<br>
-<div class="global d-flex justify-content-between m-auto">
-  <div class="cards w-100 mr-5">
-    <% @weapons.each do |weapon| %>
-    <div class="card-content w-100 m-2 rounded shadow">
-      <%= link_to weapon_path(weapon) do  %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path weapon.photo.key %>)">
-      </div>
-      <div class="card-info">
-        <div class="card-title mb-0 mt-2">
-          <%= link_to weapon.name.upcase, weapon_path(weapon) %>
-        </div>
-        <div class="card-cat mb-3">
-          Category : <%= weapon.category %>
-        </div>
-        <div class="card-price">
-          <%= weapon.price %><i class="fas fa-euro-sign ml-1"></i>
+<div class="container-index pl-4 pr-4">
+    <div class="text-prez m-3">
+      <h1 class="p-0">Find your weapon</h1>
+      <p style="text-align: left;">With <em>Bim Bam Boum</em>, find the weapon of your dream.</p>
+    </div>
+    <div class="accroche ml-3 mt-4" style="border-bottom: 1px solid #AAAAAA">
+      <h5>Find your happiness in our <%= Weapon.count %> products</h3>
+    </div>
+    <br>
+    <div class="global d-flex justify-content-evenly m-auto">
+      <div class="cards w-100 mr-5">
+        <% @weapons.each do |weapon| %>
+        <div class="card-content w-100 m-2 rounded shadow">
+          <%= link_to weapon_path(weapon) do  %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path weapon.photo.key %>)">
+          </div>
+          <div class="card-info p-1">
+            <div class="card-title mb-0 mt-2">
+              <%= link_to weapon.name.upcase, weapon_path(weapon) %>
+            </div>
+            <div class="card-cat mb-3">
+              Category : <%= weapon.category %>
+            </div>
+            <div class="card-price">
+              <%= weapon.price %><i class="fas fa-euro-sign ml-1"></i>
+            </div>
+            <% end %>
+          </div>
         </div>
         <% end %>
       </div>
+      <div id="map"
+           class="sticky-top rounded"
+           style="width: 100%;
+           height: 100vh;"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-    <% end %>
-  </div>
-  <div id="map"
-       class="col-4 sticky-top rounded"
-       style="width: 100%;
-       height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
