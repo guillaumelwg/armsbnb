@@ -1,37 +1,75 @@
-<h1 class="title"> Weapons booked in the old past</h1>
-<% @bookings.each do |booking| %>
-<br>
-<br>
-<br>
- <div class="card-category-booking d-flex justify-content-between" >
-  <br>
-  <br>
-  <br>
-  <li>
-  <p><%= booking.weapon.name %></p>
-  <p>Booking Start: <%= booking.start_date.strftime("%m/%d/%Y - %I:%M%p") %></p>
-    <p>Booking End: <%= booking.end_date.strftime("%m/%d/%Y - %I:%M%p") %></p>
-
-      <p><%= booking.weapon.category%></p>
-            <p><%= booking.weapon.price%> €</p>
-  </li>
-  <%  if booking.weapon.photo.present?  %>
-          <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 550, crop: :fill %>
-        <% else %>
-          <%= image_tag("image-not-found.jpg", height: 300, width: 550, crop: :fill) %>
-        <% end  %>
-    </div>
-    <br>
-    <% if booking.reviews.count < 1 %>
-      <div class= "review offset-5" >
-        <%= link_to 'Leave a review', new_booking_review_path(booking) %>
-      </div>
-    <% end %>
-<div>
-  <% booking.reviews.each do |review|%>
-  <% end %>
-  <br>
-  <br>
+<div class="banner-bookings position-absolute w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'background_arms.jpg' %>)";>
+  <div class="align-items-center text-align-center" style="margin-top: 50px;">
+    <h1 class="title"> My bookings</h1>
+    <p style="text-align: center; color: white">See all your bookings and leave a review for the owners !</p>
   </div>
+</div>
 
-<% end %>
+<div class="d-flex col-11 justify-content-center m-auto">
+  <div class="cards-book h-100" style="margin-top: 180px;">
+    <% @bookings.each do |booking| %>
+    <div class="card-content m-2 rounded shadow">
+   <% if booking.weapon.photo.present?  %>
+     <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path booking.weapon.photo.key %>)">
+      <% booking.reviews.each do |review|%>
+        <div class="stars d-flex">
+          <% review.rating.times do  %>
+            <div><i class="fas fa-star"></i></div>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <div><i class="fas fa-star" style="color: grey"></i></div>
+          <% end %>
+        </div>
+      <% end %>
+     </div>
+   <% else %>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/image-not-found.jpg')">
+      <% booking.reviews.each do |review|%>
+        <div class="stars d-flex">
+          <% review.rating.times do  %>
+            <div><i class="fas fa-star"></i></div>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <div><i class="fas fa-star" style="color: grey"></i></div>
+          <% end %>
+        </div>
+      <% end %>
+     </div>
+   <% end  %>
+      <div class="card-info p-1 d-flex">
+        <div class="position-relative">
+          <div class="card-time">
+            <p>From <%= booking.start_date.strftime("%m/%d/%Y") %> to <%= booking.end_date.strftime("%m/%d/%Y") %></p>
+          </div>
+          <div class="card-title mt-2 mb-0">
+            <p style="color : black; margin-bottom: 0px"><%= link_to booking.weapon.name.upcase, weapon_path(booking.weapon) %></p>
+          </div>
+          <div class="card-cat mb-2 mt-0">
+            <p style="margin-top: 0px; color: black">Category : <%= booking.weapon.category %></p>
+          </div>
+          <div class="rev pb-0 pt-0">
+            <p class="mb-0">Your review :</p>
+            <% booking.reviews.each do |review|%>
+              <%= review.content %>
+            <% end %>
+          </div>
+        </div>
+        <div class="btn" style="position : absolute; margin-top: -60px">
+          <% if booking.reviews.count < 1 %>
+            <div class="w-100">
+              <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn-flat"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="d-flex justify-content-center text-center">
+  <div class="more mt-5 text-align-center">
+    <p class="mb-4">No upcoming booking ? Have a look to our weapons !</p>
+    <p class="mt-4 text-align-center" style="text-decoration: none;"><%= link_to 'Find your weapons', weapons_path, class: "btn-flat" %></p>
+  </div>
+</div>
+

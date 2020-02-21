@@ -15,6 +15,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   height: auto;
+  z-index: 2;
 }
 
 .rounded {
@@ -130,4 +131,23 @@
   #map {
       display: none;
     }
+}
+
+.cards-book {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: auto;
+  grid-gap: 16px;
+  height: 100px;
+  z-index: 2;
+}
+
+.stars {
+  position : absolute;
+  margin-left: 95px;
+  margin-top: 135px;
+}
+
+.cont {
+  width: 100px;
 }

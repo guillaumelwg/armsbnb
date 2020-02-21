@@ -26,12 +26,26 @@ p{
 }
 .calendar {
   text-align: center;
+  font-weight: bold;
+
 }
 
-.flatpickr {
-  margin-left: 110px;
+.total {
+  text-align: center;
+}
+.reviewfront {
+  width:1000px;
+  text-align: center;
+  margin-left: 350px;
+  padding: 100px;
 }
 
+
+hr{
+  height: 1px;
+  background-color: #AFAFAF;
+  border: none; /*on supprime le style par défaut*/
+}
 .card-category-booking {
   background-size: cover;
   background-position: center;
@@ -90,7 +104,7 @@ p{
 }
 
 .flatpickr {
-margin-left: 110px;
+margin-left: 135px;
 display: flex;
 justify-content: center;
 }
