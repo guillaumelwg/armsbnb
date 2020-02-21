@@ -3,6 +3,7 @@ class WeaponsController < ApplicationController
     @weapons = policy_scope(Weapon)
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query"
+      @weapons = policy_scope(Weapon)
       @weapons = Weapon.where(sql_query, query: "%#{params[:query]}%")
 
       @markers = @weapons.map do |weapon|
