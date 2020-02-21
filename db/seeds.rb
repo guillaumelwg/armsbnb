@@ -92,7 +92,8 @@ puts "Creating 10 bookings"
   booking = Booking.new
   booking.user = users.sample
   booking.weapon = weapons.sample
-  booking.bookingdate = Time.now
+  booking.start_date = Time.now
+  booking.end_date = booking.start_date + 2
   booking.save!
 end
 puts "Created bookings"
