@@ -24,6 +24,13 @@
 p{
   text-align: left;
 }
+.calendar {
+  text-align: center;
+}
+
+.flatpickr {
+  margin-left: 110px;
+}
 
 .card-category-booking {
   background-size: cover;
@@ -83,7 +90,7 @@ p{
 }
 
 .flatpickr {
-margin: 20px;
+margin-left: 110px;
 display: flex;
 justify-content: center;
 }
