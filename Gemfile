@@ -20,7 +20,6 @@ gem 'faker'
 gem 'geocoder'
 gem "simple_calendar", "~> 2.0"
 
-
 gem 'cloudinary', '~> 1.12.0'
 
 

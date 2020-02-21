@@ -59,6 +59,10 @@
   border: 5px solid #272727;
 }
 
+.card a {
+  text-decoration: none;
+}
+
 .card:hover {
   border: 5px solid #fd0054;
 }
