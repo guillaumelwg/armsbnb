@@ -1,34 +1,49 @@
-<h1 class="title"> Weapons booked in the old past</h1>
-<% @bookings.each do |booking| %>
-<br>
-<br>
-<br>
- <div class="card-category-booking d-flex justify-content-between" >
-  <br>
-  <br>
-  <br>
-  <li>
-  <p><%= booking.weapon.name %></p>
-  <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y - %I:%M%p") %></p>
-      <p><%= booking.weapon.category%></p>
-            <p><%= booking.weapon.price%> €</p>
-  </li>
-  <%  if booking.weapon.photo.present?  %>
-          <%= cl_image_tag booking.weapon.photo.key, height: 300, width: 550, crop: :fill %>
-        <% else %>
-          <%= image_tag("image-not-found.jpg", height: 300, width: 550, crop: :fill) %>
-        <% end  %>
-    </div>
-    <br>
-    <% if booking.reviews.count < 1 %>
-      <div class= "review offset-5" >
-        <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+<h1 class="title"> My bookings</h1>
+<p>See all your bookings and leave a review for the owners !</p>
+
+<div class="d-flex col-6 justify-content-between m-auto">
+  <div class="cards h-100 w-100 mr-5">
+    <% @bookings.each do |booking| %>
+    <div class="card-content w-100 m-2 rounded shadow">
+   <% if booking.weapon.photo.present?  %>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path booking.weapon.photo.key %>)">
+     </div>
+   <% else %>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/image-not-found.jpg')">
+     </div>
+   <% end  %>
+      <div class="card-info p-1 d-flex">
+        <div class="position-relative">
+          <div class="card-time">
+            <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y") %></p>
+          </div>
+          <div class="card-title mb-2 mt-2">
+            <p><%= booking.weapon.name.upcase %></p>
+          </div>
+          <div class="card-cat mb-4">
+            Category : <%= booking.weapon.category %>
+          </div>
+        </div>
+        <div class="review-btn">
+          <% if booking.reviews.count < 1 %>
+            <div class= "review offset-5" >
+              <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+            </div>
+          <% end %>
+        </div>
+        <div class="rev">
+          <% booking.reviews.each do |review|%>
+          <% end %>
+        </div>
       </div>
+    </div>
     <% end %>
-<div>
-  <% booking.reviews.each do |review|%>
-  <% end %>
-  <br>
-  <br>
   </div>
-<% end %>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="more mt-5">
+    <p class="mb-4">No upcoming booking ? Have a look to our weapons !</p>
+    <p class="mt-4 color"><%= link_to 'Find your weapons', weapons_path, class: "btn-flat" %></p>
+  </div>
+</div>
+
