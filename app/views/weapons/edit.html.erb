@@ -1,9 +1,15 @@
-<h1>Edit</h1>
-<%= simple_form_for(@weapon) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.input :price %>
-  <%= f.input :localisation %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Edit my weapon' %>
-<% end %>
+<div class="container">
+  <div class="col-12">
+    <h1 class="d-flex justify-content-center">Edit my weapon</h1>
+    <div class="d-flex justify-content-center mt-2">
+    <%= simple_form_for(@weapon) do |f| %>
+      <%= f.input :name, placeholder: 'Name', label: false %>
+      <%= f.input :category, placeholder: 'Category', label: false %>
+      <%= f.input :price, placeholder: 'Price', label: false %>
+      <%= f.input :localisation, placeholder: 'Localisation', label: false %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit 'Edit my weapon' %>
+    <% end %>
+    </div>
+  </div>
+</div>
