@@ -37,14 +37,15 @@ p{
   padding: 100px;
 }
 
-.input {
-  color: blue;
-}
-
 img {
 padding-left: 50px;
 }
 
+hr{
+  height: 1px;
+  background-color:grey;
+  border: none; /*on supprime le style par défaut*/
+}
 .card-category-booking {
   background-size: cover;
   background-position: center;
