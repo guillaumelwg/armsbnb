@@ -11,7 +11,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement().dataset.mapboxapikey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/couzix/ck6w98jm70q0i1ir2y0696q32'
+    style: 'mapbox://styles/mapbox/streets-v10'
   });
 };
 
@@ -42,4 +42,3 @@ const initMapbox = () => {
 };
 
 export { initMapbox };
-
