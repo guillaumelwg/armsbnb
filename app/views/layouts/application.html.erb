@@ -7,19 +7,36 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <%= stylesheet_pack_tag 'application' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+<!--     <link href='https://api.mapbox.com/mapbox-gl-ya/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+ --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+
+
+
+
+
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div class="container-perso">
-      <%= yield %>
-
+    <% if params[:action] == "home" %>
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
+    <% else %>
+      <div class="container">
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= render 'shared/flashes' %>
+    <%= javascript_pack_tag 'application' %>
     <%= render 'shared/footer' %>
-    </div>
   </body>
 </html>

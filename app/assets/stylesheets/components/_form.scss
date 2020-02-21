@@ -1,0 +1,14 @@
+.form-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-query {
+  flex-grow: 1;
+  width: 400px;
+}
+
+.form-submit {
+background-color: red;
+}

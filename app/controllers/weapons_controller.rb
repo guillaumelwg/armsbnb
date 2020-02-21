@@ -1,5 +1,6 @@
 class WeaponsController < ApplicationController
   def index
+    @weapons = policy_scope(Weapon)
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query"
       @weapons = policy_scope(Weapon)
@@ -13,8 +14,6 @@ class WeaponsController < ApplicationController
         }
       end
     else
-      # @weapons = Weapon.all
-      @weapons = policy_scope(Weapon)
       @weapons = Weapon.geocoded
 
       @markers = @weapons.map do |weapon|
