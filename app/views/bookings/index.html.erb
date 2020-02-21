@@ -15,7 +15,7 @@
       <div class="card-info p-1 d-flex">
         <div class="position-relative">
           <div class="card-time">
-            <p>Booking date: <%= booking.bookingdate.strftime("%m/%d/%Y") %></p>
+            <p>Booking date: <%= booking.start_date.strftime("%m/%d/%Y") %> to <%= booking.end_date.strftime("%m/%d/%Y") %></p>
           </div>
           <div class="card-title mb-2 mt-2">
             <p><%= booking.weapon.name.upcase %></p>
