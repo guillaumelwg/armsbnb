@@ -4,7 +4,6 @@
     <p style="text-align: center; color: white">See all your bookings and leave a review for the owners !</p>
   </div>
 </div>
-
 <div class="d-flex col-11 justify-content-center m-auto">
   <div class="cards-book h-100" style="margin-top: 180px;">
     <% @bookings.each do |booking| %>
@@ -13,11 +12,14 @@
      <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path booking.weapon.photo.key %>)">
       <% booking.reviews.each do |review|%>
         <div class="stars d-flex">
-          <% review.rating.times do  %>
-            <div><i class="fas fa-star"></i></div>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <div><i class="fas fa-star" style="color: grey"></i></div>
+
+          <% if review.rating  %>
+            <% review.rating.times do  %>
+              <div><i class="fas fa-star"></i></div>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <div><i class="fas fa-star" style="color: grey"></i></div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -54,10 +56,10 @@
             <% end %>
           </div>
         </div>
-        <div class="btn" style="position : absolute; margin-top: -60px">
+        <div class="btn" style="position : absolute; margin-top: -120px">
           <% if booking.reviews.count < 1 %>
             <div class="w-100">
-              <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn-flat"%>
+              <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn btn-flat"%>
             </div>
           <% end %>
         </div>
@@ -69,7 +71,10 @@
 <div class="d-flex justify-content-center text-center">
   <div class="more mt-5 text-align-center">
     <p class="mb-4">No upcoming booking ? Have a look to our weapons !</p>
-    <p class="mt-4 text-align-center" style="text-decoration: none;"><%= link_to 'Find your weapons', weapons_path, class: "btn-flat" %></p>
+    <p class="mt-4 text-align-center" style="text-decoration: none;"><%= link_to 'Find your weapons', weapons_path, class: "btn btn-flat" %></p>
   </div>
 </div>
+
+
+
 
