@@ -26,10 +26,23 @@ p{
 }
 .calendar {
   text-align: center;
+  font-weight: bold;
+
 }
 
-.flatpickr {
-  margin-left: 110px;
+.reviewfront {
+  width:1000px;
+  text-align: center;
+  margin-left: 350px;
+  padding: 100px;
+}
+
+.input {
+  color: blue;
+}
+
+img {
+padding-left: 50px;
 }
 
 .card-category-booking {
@@ -90,7 +103,7 @@ p{
 }
 
 .flatpickr {
-margin-left: 110px;
+margin-left: 135px;
 display: flex;
 justify-content: center;
 }

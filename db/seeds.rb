@@ -106,7 +106,7 @@ booking_ids = (Booking.first.id..Booking.last.id).to_a
   review.content = Faker::Lorem.paragraph
   review.rating = ratings.sample
   review.booking = Booking.find(booking_ids.first)
-  booking_ids.delete_at(0)
+  we -pbooking_ids.delete_at(0)
   review.save!
 end
 puts "Created reviews"
