@@ -1,14 +1,19 @@
+
 .footer {
-  background-color: #2A2A2A;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding-left: 50px;
-  color: rgba(0,0,0,0.3);
-  border-top: solid 1px rgb(230, 230, 230);
-  font-family: Nunito;
+    background-color: #2A2A2A;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100px;
+    padding-left: 50px;
+    color: rgba(0, 0, 0, 0.3);
+    border-top: solid 1px #e6e6e6;
+    font-family: Nunito;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
