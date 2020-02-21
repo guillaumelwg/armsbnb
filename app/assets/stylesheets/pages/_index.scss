@@ -30,6 +30,9 @@ p{
 
 }
 
+.total {
+  text-align: center;
+}
 .reviewfront {
   width:1000px;
   text-align: center;
@@ -37,13 +40,10 @@ p{
   padding: 100px;
 }
 
-img {
-padding-left: 50px;
-}
 
 hr{
   height: 1px;
-  background-color:grey;
+  background-color: #AFAFAF;
   border: none; /*on supprime le style par défaut*/
 }
 .card-category-booking {

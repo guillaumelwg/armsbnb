@@ -2,11 +2,13 @@
   <div class="flexbox ">
     <div class="weapon-intro-review">
       <div class="weapon-card my-4 p-4">
-        <%  if @weapon.photo.present?  %>
-          <%= cl_image_tag @weapon.photo.key, height: 400, width: 400, crop: :fill %>
-        <% else %>
-          <%= image_tag("image-not-found.jpg", height: 400, width: 500, crop: :fill) %>
-        <% end  %>
+        <div class=" d-flex justify-content-center">
+          <%  if @weapon.photo.present?  %>
+            <%= cl_image_tag @weapon.photo.key, height: 400, width: 400, crop: :fill %>
+          <% else %>
+            <%= image_tag("image-not-found.jpg", height: 400, width: 500, crop: :fill) %>
+          <% end  %>
+        </div>
         <div class="weapon-infos-card">
           <br>
           <br>
@@ -29,32 +31,32 @@
         <h5>Reviews</h5>
         <% @weapon.bookings.each do |booking|%>
             <% booking.reviews.each do |review| %>
-        <hr>
             <p><strong><%= review.booking.user.email %></strong></p>
+        <hr>
             <p><%= review.rating %> / 5 - "<%= review.content %>"</p>
             <% end %>
           <% end %>
       </div>
     </div>
 
+
     <div class="weapon-card my-4 p-4 form-booking-card">
       <%= simple_form_for [@weapon, @booking] do |f| %>
           <%= f.hidden_field :weapon_id %>
           <br>
           <br>
-          <p class="calendar"> Début de location : </p>
+          <p class="calendar"> From : </p>
           <input type="text" class="flatpickr" name="start_date">
           <br>
-          <p class="calendar">Fin de location : </p>
+          <p class="calendar"> Until : </p>
           <input type="text" class="flatpickr" name="end_date">
           <br>
-          <br>
+          <p class= "total">  Total cost : <%= @weapon.price  %> €</p>
           <%#= f.input_field :start_date, input_html: { class: 'flatpickr' } %>
           <%#= f.input_field :end_date, input_html: { class: 'flatpickr' } %>
           <%= f.submit "Réservez cette arme", class: "btn btn-primary rounded"%>
       <% end %>
     </div>
-
 <%#= simple_form_for [@weapon, @booking] do |f| %>
     <%#= f.input :bookingdate %>
     <%#= f.submit "Réservez cette arme" %>
