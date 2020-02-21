@@ -29,6 +29,7 @@
         <h5>Reviews</h5>
         <% @weapon.bookings.each do |booking|%>
             <% booking.reviews.each do |review| %>
+        <hr>
             <p><strong><%= review.booking.user.email %></strong></p>
             <p><%= review.rating %> / 5 - "<%= review.content %>"</p>
             <% end %>
